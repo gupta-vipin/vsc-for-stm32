@@ -1,40 +1,40 @@
-# Сборка проекта из исходных файлов в среде VS Code
+# Building a project from source files in VS Code
 
-При разработке очень часто возникает необходимость выполнить сборку проекта из исходных файлов. Выполнить сборку можно разными способами, в инструкции описан случай, когда проект собирается с помощью _Makefile_, как наиболее популярный вариант. В качестве примера используется открытый проект МРРТ контроллера заряда, но процесс сборки актуален и для других проектов.
+During development, it is very often necessary to build a project from source files. You can build it in different ways, the instructions describe the case when the project is built using _Makefile_, as the most popular option. As an example, an open project MPPT charge controller is used, but the assembly process is relevant for other projects as well.
 
-## Шаг №1
-Необходимо получить исходные файлы с GitHub-а можно двумя способами:
+## Step # 1
+You need to get the source files from GitHub in two ways:
 
-* __Скачать ZIP архив с проектом__
+* __Download ZIP archive with the project__
 
 >
-![Установка VSC](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/9.PNG)
+![Installing VSC](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/9.PNG)
 
-* __Клонировать репозиторий на свой компьютер__
+* __Clone the repository to your computer__
 
-Для этого откроем любой терминал и выполним команду:
+To do this, open any terminal and execute the command:
 ```
 git clone https://github.com/RedCommissary/mppt-2420
 ```
 >
-![Установка VSC](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/10.PNG)
+![Installation VSC](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/10.PNG)
 >
-После этого выполнится загрузка всех исходников проекта. 
+After that, all sources of the project will be downloaded. 
 
-## Шаг №2
+## Step #2
 
-Существует много вариантов организации репозиториев, в данном случае в одном репозитории содержится и "железный" проект и исходники встроенного ПО. Для сборки понадобится только папка _firmware/source_. Открываем ее в редактор VS Code и видим такую картину:
+There are many options for organizing repositories, in this case, one repository contains both the "hardware" project and the firmware sources. To build, you only need the _firmware / source_ folder. We open it in the VS Code editor and see the following picture:
 >
-![Установка VSC](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/11.PNG)
+![Installation VSC](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/11.PNG)
 
-Проект открылся и видим его структуру. Ключевые настройки среды разработки находятся в папке _.vscode_, т.к. сами правила сборки проекта описаны в _Makefile_ и их редакторать не требуются, они остаются не изменными. Необходимо лишь прописать пути до используемого _ARM GCC Toolchain_. Прописываем свои пути в этих 4-х строках:
+The project has opened and we see its structure. The key settings of the development environment are located in the _.vscode_ folder, since the project build rules themselves are described in _Makefile_ and are not required to be edited, they remain unchanged. It is only necessary to register the paths to the used _ARM GCC Toolchain_. We register our paths in these 4 lines:
 >
-![Установка VSC](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/12.PNG)
+![Installation VSC](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/12.PNG)
 
-## Шаг №3
-На этом настройки окончены и можно собирать проект, запустив скрипт сборки _Terminal -> Run Task -> Make Build_ и после окончания сборки получим такой результат:
+## Step #3
+This completes the settings and you can build the project by running the build script _Terminal -> Run Task -> Make Build_ and after the build is complete, we will get the following result:
 >
-![Установка VSC](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/13.PNG)
+![Installtion VSC](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/13.PNG)
 
-## Дополнительно
-Для тренировки и закрепления знаний можете собрать несколько проектов из коллекции шаблонов для STM32, которые [доступны на GitHub](https://github.com/RedCommissary/examples-cortex-mcu).
+## Additionally
+To train and consolidate your knowledge, you can collect several projects from the collection of templates for STM32, which [available on github](https://github.com/gupta-vipin/examples-cortex-mcu).
