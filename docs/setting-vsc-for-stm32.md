@@ -7,7 +7,7 @@ Visual Studio Code is a lightweight, feature-rich code and text editor that is e
 ## Step #1
 [You need to download and install the actual Visual Studio Code editor itself](https://code.visualstudio.com/)
 >
-![Installation VSC](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/2.PNG)
+![Installation VSC](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/2.PNG)
 
 ## Step #2
 Now you need to install two plugins to extend the capabilities of VS Code:
