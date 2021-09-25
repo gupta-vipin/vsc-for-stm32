@@ -1,72 +1,72 @@
-# Настройка "VS Code + GCC + JLink" для работы с STM32 для Windows 10
+# Configuring "VS Code + GCC + JLink" to work with STM32 for Windows 10
 >
-Visual Studio Code является легковесным функциональным редактором кода и текста, возможности которого расширяются с помощью плагинов. В связке с открытым GCC и плагином Cortex-Debug редактор превращается в мощный инструмент разработки встроенного ПО для практически любых микроконтроллеров. Описанный далее метод позволяет работать с любыми микроконтроллерами на ядре ARM Cortex-M и многими другими.
+Visual Studio Code is a lightweight, feature-rich code and text editor that is extensible with plugins. In conjunction with the open source GCC and the Cortex-Debug plugin, the editor turns into a powerful firmware development tool for almost any microcontroller. The method described below allows you to work with any microcontrollers based on the ARM Cortex-M core and many others.
 
-![Заголовок](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/1.PNG)
+![Heading](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/1.PNG)
 
-## Шаг №1
-[Необходимо скачать и установить собственно сам редактор Visual Studio Code](https://code.visualstudio.com/)
+## Step #1
+[You need to download and install the actual Visual Studio Code editor itself](https://code.visualstudio.com/)
 >
-![Установка VSC](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/2.PNG)
+![Installation VSC](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/2.PNG)
 
-## Шаг №2
-Теперь необходимо установить два плагина для расширения возможностей VS Code:
+## Step #2
+Now you need to install two plugins to extend the capabilities of VS Code:
 
 * **C/C++**
 *  **Cortex-Debug**
 
-Для установки перейдите в раздел *Extensions* или комбинация *Ctrl+Shift+X*, далее в строку поиска вписываете названия плагинов, одни из самых популярных и будут в начале списка. Жмете на плагин и устанавливаете его. Последовательность установки не важна. Эти 2 плагина минимально необходимый набор, так же вы можете поставить другие расширения для удоства и на работоспособность это никак не повлияет.
+To install, go to the * Extensions * section or the combination * Ctrl + Shift + X *, then enter the names of the plugins in the search bar, some of the most popular and will be at the beginning of the list. Click on the plugin and install it. The sequence of the installation is not important. These 2 plugins are the minimum required set, you can also install other extensions for verification and this will not affect the performance in any way.
 >
-![Установка плагинов](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/3.PNG)
+![Installing plugins](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/3.PNG)
 
-## Шаг №3
-[Установить драйвера и утилиты JLink](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack)
+## Step #3
+[Install JLink Drivers and Utilities](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack)
 
-Устанавливать драйвера от Segger лучше всего в корневую папку, в пути к файлам должны обязательно отсутствовать кириллические символы, так же желательно использовать имена папок без применения пробелов.
+It is best to install Segger drivers in the root folder, the path to the files must be without Cyrillic characters, it is also desirable to use folder names without using spaces.
 
-Для работы используется отладчик JLink v9.x, однако допускается работа и с другими средствами разработки, например, с фирменными ST-Link и прочими решениями от производителей. Использовать JLink рекомендуется, т.к. он поддерживает большое количество микроконтроллеров, все решения на ARM Cortex-M и при этом не привязан к IDE и инструментам конекретных разработчиков.
+For work, the JLink v9.x debugger is used, however, it is allowed to work with other development tools, for example, with proprietary ST-Link and other solutions from manufacturers. It is recommended to use JLink because it supports a large number of microcontrollers, all solutions on ARM Cortex-M, and at the same time is not tied to the IDE and tools of specific developers.
 >
-![Установка JLink](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/4.PNG)
+![Installing JLink](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/4.PNG)
 
 ## Шаг №4
-[Установить toolchain GNU Arm Embedded GCC v10.x](https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases)
+[Install toolchain GNU Arm Embedded GCC v10.x](https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases)
 
-На момент прочтения версия тулчейна может оказаться более свежей, тогда устанавливаем ее. Установку лучше всего произвести тоже в корневую папку, не допускается использование кириллицы в пути к файла, а также желательно избегать пробелом в именах папок.
+At the time of reading, the version of the toolchain may be more recent, then we install it. Installation is best done also in the root folder, the use of the Cyrillic alphabet in the path to the file is not allowed, and it is also advisable to avoid a space in the folder names.
 >
-![Установка toolchain](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/5.PNG)
+![Installing the toolchain](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/5.PNG)
 
-## Шаг №5
-[Установить инструмент для сборки Windows Build Tools](https://github.com/xpack-dev-tools/windows-build-tools-xpack/releases)
+## Step #5
+[Install Windows Build Tools](https://github.com/xpack-dev-tools/windows-build-tools-xpack/releases)
 
-Устанавливаем самую свежую версию также в корневую папку без кириллицы в именах и в идеале без пробелов.
+Install the latest version also in the root folder without Cyrillic names and ideally without spaces.
 >
-![Установка Windows Build Tools](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/6.PNG)
+![Installation Windows Build Tools](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/6.PNG)
 
-## Шаг №6
-Проверяем! После прохождения всех предыдущих шагов у вас на компьютере должен быть установлен редактор *VS Code*, а также инструменты разработки из шагов 3-5. Примерная структура проекта:
+## Step #6
+Checking! After going through all the previous steps, you should have the * VS Code * editor installed on your computer, as well as the development tools from steps 3-5. Approximate project structure:
 
-* _Диск С_
+* _Drive C_
     * _devs_ 
         * _jlink_
         * _toolchain_
         * _windows-build-tools_
 
-Соответственно пути к этим папкам выглядят так:
+Accordingly, the paths to these folders look like this:
 
 * _C:\devs\jlink_
 * _C:\devs\toolchain_
 * _C:\devs\windows-build-tools_
 
 >
-![Установленные файлы](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/7.PNG)
+![Installed files](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/7.PNG)
 
-Ваши пути и структура папок может отличаться от моей! Важно лишь чтобы в пути к файлам не было кириллицы и в идеале не было проблеов, а также сами пути были короткими. Если важи пути будут отличаться, то дальше при настройке вы просто используете их и все.
+Your paths and folder structure may be different from mine! It is only important that the path to the files is not in Cyrillic and, ideally, there are no problems, as well as the paths themselves are short. If the paths are different, then when setting up you just use them and that's it.
 
-## Шаг №7
-После установки всех инструментов необходимо прописать в переменные среды пути к нужным папкам. Для этого жмем правой кнопкой по значку *Мой компьюетр* и выбираем *Свойства*. Далее жмем по *Дополнительные параметры системы* и откроется окно *Свойства системы*, где будет меню *Переменные среды...*, нажимаем и видим список переменных. Жмем по переменной *Path* и теперь необходимо прописать пути до следующих папок:
+## Step #7
+After installing all the tools, you need to register the paths to the necessary folders in the environment variables. To do this, right-click on the icon * My computer * and select * Properties *. Next, click on * Additional system parameters * and the * System Properties * window will open, where there will be a menu * Environment Variables ... *, click and see the list of variables. Click on the * Path * variable and now you need to register the paths to the following folders:
 >
-![Пути к папкам](https://github.com/RedCommissary/vsc-for-stm32/blob/master/docs/pic/8.PNG)
+![Folder paths](https://github.com/gupta-vipin/vsc-for-stm32/blob/master/docs/pic/8.PNG)
 
-Путь для VS Code прописывается автоматом при установке редактора, а вот пути до 3-х папок необходимо прописать самостоятельно. Учтите, что тут вы должны прописать свои реальные пути, которые могут отличаться от моих.
+The path for VS Code is registered automatically when installing the editor, but the paths for up to 3 folders must be written independently. Please note that here you must register your real paths, which may differ from mine.
 
-**Настройка завершена, теперь желательно перезагрузить систему - вы можете приступить к сборке проекта!**
+**The configuration is complete, now it is advisable to reboot the system - you can start building the project!**
